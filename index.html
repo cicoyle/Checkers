@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html>
-<title>Griffin Army Checker</title>
+<title>Griffin Army Checkers</title>
 <head>
 <link rel="stylesheet" type="text/css" href="main.css">
 
@@ -9,13 +9,16 @@
 <body>
 <header>
 
-Griggin Army Checker <br>
+Griffin Army Checkers <br>
 
 
 </header>
 <div>
-<form ><input = "button" value = "New Game" onclick = draw()>
-		<input = "button" value = "Night Mode" onclick = draw1()>
+<form>
+        <input = "button" value = "User Name" >
+        <button type="button" id="New Game" onclick = draw()>New Game</button>
+        <button type="button" id="Night Mode" onclick = draw1()>Night Mode</button>
+
 </form>
 </div>
 
@@ -28,6 +31,9 @@ Griggin Army Checker <br>
 </div>
 <form>  </form>
 
+TIMER
+<div id="time"></div>
+<button id="startBtn" onclick = stopWatch() >Start time</button>
 
 
 <script type = "application/javascript" language = "javascript" src = "programming.js"></script>
