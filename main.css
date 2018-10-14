@@ -1,0 +1,32 @@
+header {
+	font-size: 200%;
+    background-color: #5c755e;
+	text-align: center;
+    margin: 0px;
+    height:100px;
+    border-radius: 7px;
+	
+}
+button {
+	align: left;
+}
+h1{
+font-size: 120%;
+}
+h2{
+    font-size: 120%;
+    color: #ce282e;
+}
+h3{
+    font-size: 100%;
+    text-align: left;
+	
+    font-family: "century Ghotic" , "Gill Sans" ,Arial, sans-serif;
+    margin: 0px;
+
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
