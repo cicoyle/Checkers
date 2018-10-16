@@ -37,6 +37,11 @@ function draw(){
 	}
 }
 
+function enterName() {
+	var userelement = document.getElementById("userelement").value;
+    document.getElementById("demo").innerHTML = "Welcome, " + userelement +"!";
+}
+
 function draw1(){
 
 	//alert ("In functionn draw");
