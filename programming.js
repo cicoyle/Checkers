@@ -39,7 +39,7 @@ function draw(){
 
 function enterName() {
 	var userelement = document.getElementById("userelement").value;
-    document.getElementById("demo").innerHTML = "Welcome, " + userelement +"!";
+    document.getElementById("message").innerHTML = "Welcome, " + userelement +"!";
 }
 
 function draw1(){
