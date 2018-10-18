@@ -104,7 +104,7 @@ function enterName() {
 	var userelement = document.getElementById("userelement").value;
 	var canvas = document.getElementById("myCanvas");
 	var ctx = canvas.getContext("2d");
-	ctx.font = "45px Comic Sans MS";
+	ctx.font = "45px Veranda";
 	ctx.fillStyle = "blue";
 	ctx.textAlign = "center";
 	ctx.fillText("Welcome, " + userelement + "!", canvas.width/2, canvas.height/11);
