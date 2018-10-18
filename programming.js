@@ -1,3 +1,5 @@
+// Variables
+
 var gameBoard = [ 
 	[0, 0, 0,  0,  0,  0,  0,  0,  0, 0],
     [0, 0, 1,  0,  1,  0,  1,  0,  1, 0],
@@ -16,13 +18,16 @@ var bChecker = [];
 var board = [];
 var totalSeconds = 0;
 window.onload = draw();
+window.onload = welcome();
 
-var mode = 1;
+var mode = 0;
 var color = "red";
 
 
 
+// functions
 
+// Function for game mode change from day to night and night to day
 function changeGamemode (mode) {
 	if (this.mode == 0){
 		this.mode = 1;
@@ -32,12 +37,8 @@ function changeGamemode (mode) {
 	draw(mode);
 }
 	
- 
-function setup(){
-	draw();
-}
-window.onload = welcome();
 
+// This function always draw the board with pieces specified in variable gameboard [][].
 function draw(mode){
 	var row = 10;
 	var col = 10;
