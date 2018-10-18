@@ -100,20 +100,15 @@ function draw(mode){
 	}
 }
 
-function welcome(){
+function enterName() {
+	var userelement = document.getElementById("userelement").value;
 	var canvas = document.getElementById("myCanvas");
 	var ctx = canvas.getContext("2d");
 	ctx.font = "50px Comic Sans MS";
-	ctx.fillStyle = "red";
+	ctx.fillStyle = "blue";
 	ctx.textAlign = "center";
-	ctx.fillText("Welcome to Griffin Army Checker", canvas.width/2, canvas.height/2);
+	ctx.fillText("Welcome, " + userelement + "!", canvas.width/2, canvas.height/11);
 }
-function enterName() {
-	var userelement = document.getElementById("userelement").value;
-    document.getElementById("message").innerHTML = "Welcome, " + userelement +"!";
-}
-
-
 
 function button() {
     let butt = document.getElementById("Button");
