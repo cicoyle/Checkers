@@ -1,4 +1,4 @@
-// Variables
+// Variables for drawing boards and pieces
 
 var gameBoard = [ 
 	[0, 0, 0,  0,  0,  0,  0,  0,  0, 0],
@@ -16,7 +16,9 @@ var mode = 0;
 var color = "red";
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
+// Functions for board
 
+//This function changesd the game board from day to night mode and vice versa
 function changeGamemode (mode) {
 	if(color == "red"){
 		color = "blue";
@@ -28,8 +30,10 @@ function changeGamemode (mode) {
 	
  
 }
-
+// this function runs welcome function when windows load
 window.onload = welcome();
+
+// This function draw the board
 function draw(mode){
 	var row = 10;
 	var col = 10;
@@ -87,6 +91,7 @@ function draw(mode){
 	}
 }
 
+// this is the welcome function
 function welcome(){
 	ctx.font = "50px Comic Sans MS";
 	ctx.fillStyle = "red";
@@ -94,6 +99,7 @@ function welcome(){
 	ctx.fillText("Welcome to Griffin Army Checker", canvas.width/2, canvas.height/2);
 }
 
+// This function initialize the new game
 function initialize(){
 	gameBoard = [ 
 				[0, 0, 0,  0,  0,  0,  0,  0,  0, 0],
@@ -112,19 +118,18 @@ function initialize(){
 				
 }
 
-function selectPiece(i,j){
-	
-	
-	
-	
-	alert ("piece is selected");
-	
-}
+
+/********************** Functionality Functions   **********************************************/
+
+
+//Variables for playing games
 var newRow = 0;
 var newCol = 0;
 var selectected = 0;
 var playerTurn = 1;
 
+
+// This function determine the player turn
 function changeTurn(){
 	if(playerTurn == 1){
 		playerTurn = 2;
@@ -133,6 +138,7 @@ function changeTurn(){
 	}
 }
 
+// this function move the selected piece 
 function movePiece(y1,x1,y2,x2){
 	
 	gameBoard[y1][x1] = gameBoard[y2][x2];
@@ -141,6 +147,8 @@ function movePiece(y1,x1,y2,x2){
 	draw(mode);
 	
 }
+
+// this function jumps  the selected piece over other player piece
 function jumpPiece(y1,x1,y2,x2){
 	
 	gameBoard[y1][x1] = gameBoard[y2][x2];
@@ -167,7 +175,7 @@ function jumpPiece(y1,x1,y2,x2){
 	}
 	draw(mode);
 }
-
+// This function varifies if the move is legal
 function canMove(oldy,oldx,newy,newx){
 	var can = false;
 	if (playerTurn == 1){
@@ -196,7 +204,7 @@ function canMove(oldy,oldx,newy,newx){
 	
 	
 }
-
+// This Function varifies if the jump is legal.
 function canJump(oldy,oldx,newy,newx){
 	var can = false;
 	if (playerTurn == 1){
@@ -225,7 +233,7 @@ function canJump(oldy,oldx,newy,newx){
 	
 	
 }
-
+// This function varifies if the player wins
 function isWinner(){
 	var count = 0;
 	var row1 = 10;
@@ -248,7 +256,7 @@ function isWinner(){
 	alert ("completed is winner function");
 	return (count == 0)
 }
-
+// This function actually play the game
 function selectPiece(event) {
     var x = event.offsetX;
     var y = event.offsetY;
@@ -297,6 +305,9 @@ function selectPiece(event) {
 	}
 	
 }
+
+
+/*********************** Other application components functions **********************************/
 function enterName() {
 	var userelement = document.getElementById("userelement").value;
 	var canvas = document.getElementById("myCanvas");
