@@ -10,8 +10,9 @@
 <header>
 
 Griffin Army Checkers <br>
-</header>
 
+
+</header>
 <div>
 <form>
         <input = "button" value = "User Name" >
@@ -19,19 +20,27 @@ Griffin Army Checkers <br>
         <button type="button" id="Night Mode" onclick = changeGamemode()>Night Mode</button>
 
 </form>
-<div style="position: absolute; top:50px; left:500px; width:200px; height:25px">
+
+
+
+<DIV style="position: absolute; top:110px; left:930px; width:200px; height:25px">
 <input type="text" id="userelement">
 <button onclick="enterName()">Submit Name</button>
+<p id="message"></p>
 <script type ="text/javascript">enterName();</script> 
 </div>
 </div>
 
+
+
 <div>
-<canvas id="myCanvas" width="900" height="900" style="border:1px solid #000000;"></canvas>
+
+<canvas id="myCanvas" width="900" height="900" style="border:1px solid #000000;" onclick = "selectPiece(event)"></canvas>
+
 
 </div>
 <form>  </form>
-
+<img id="king" src="king.jpg" alt="king">
 <audio controls>
 <source src="https://www.mfiles.co.uk/mp3-downloads/moonlight-movement1.mp3">
   </audio>  
@@ -39,6 +48,7 @@ Griffin Army Checkers <br>
 TIMER
 <div id="time"></div>
 <button id="startBtn" onclick = stopWatch() >Start time</button>
+
 
 <script type = "application/javascript" language = "javascript" src = "programming.js"></script>
 </body>
