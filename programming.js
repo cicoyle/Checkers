@@ -80,7 +80,7 @@ function draw(mode){
 
 	
 
-	alert ("In functopn draw");
+	alert ("In function draw");
 
 	
 
