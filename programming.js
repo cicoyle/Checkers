@@ -76,17 +76,7 @@ function draw(mode){
 
 	var col = 10;
 
-	gamemode = this.mode;
-
-	
-
-	alert ("In function draw");
-
-	
-
-	
-
-	
+	gamemode = this.mode;	
 
 	for (i = 0; i < row; i++){
 
@@ -99,14 +89,6 @@ function draw(mode){
 			
 
 			var s = gameBoard[i][j];
-
-			
-
-			
-
-			
-
-
 
 			if (i == 0 || j == 0 || i == 9 || j==9){
 
@@ -122,11 +104,7 @@ function draw(mode){
 
 					ctx.fillStyle = "black";
 
-					ctx.fillRect(x,y,90,90);
-
-					
-
-				
+					ctx.fillRect(x,y,90,90);				
 
 				}else{
 
@@ -134,19 +112,12 @@ function draw(mode){
 
 					ctx.fillRect(x,y,90,90);
 
-					
-
 				}
-
-				
 
 			}
 
 			
-
-			if (s ==1){
-
-				
+			if (s ==1){	
 
 				ctx.beginPath();
 
