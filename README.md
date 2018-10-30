@@ -8,4 +8,8 @@ To play "A Game of Checkers":
 Click on the piece you wish to move
 Click on the space you wish to move it to.
 The piece will be moved to the new space if the move is valid.
-Continue to plat checkers until someone wins.
+Continue to play checkers until someone wins.
+**The user must play both sides of the game.
+
+ See the attempt at the AI implementation (and junit test). 
+
