@@ -155,6 +155,19 @@ function draw(mode){
 				ctx.fill();
 
 			}
+			if (s ==4){
+
+				
+
+				ctx.beginPath();
+
+				ctx.arc(x+45,y+45,40,0,2*Math.PI);
+
+				ctx.fillStyle= "#ffff99";
+
+				ctx.fill();
+
+			}
 
 			
 
