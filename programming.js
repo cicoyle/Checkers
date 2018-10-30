@@ -679,9 +679,6 @@ function makeKing(y2,x2){
 
 function selectPiece(event) {
 	
-	if (playerTurn == 1){
-		compTurn();
-	}
 
     var x = event.offsetX;
 
