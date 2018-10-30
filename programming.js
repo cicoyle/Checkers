@@ -678,6 +678,10 @@ function makeKing(y2,x2){
 // This function actually play the game
 
 function selectPiece(event) {
+	
+	if (playerTurn == 1){
+		compTurn();
+	}
 
     var x = event.offsetX;
 
@@ -769,6 +773,82 @@ function selectPiece(event) {
 }
 
 
-// This function varifies if the move is legal
+// This function will move the computer
+// attempt to AI
 
+/*********************************************************************************888
+function compTurn(){
 
+	for (i=0; i<10; i++){
+		
+		for(j=0; j<10; j++){
+			if(playerTurn == 1){
+				
+				if(gameBoard[i][j] == 1){
+					if (canJump(i,j,i+2,j+2)){
+						jumpPiece(i,j,i+2,j+2)
+						changeTurn();
+						
+					}else if(i,j,i+2,j-2){
+						jumpPiece(i,j,i+2,j-2)
+						changeTurn();
+					}
+					
+				}else if(gameBoard[i][j] == 3){
+					if (canJump(i,j,i+2,j+2)){
+						jumpPiece(i,j,i+2,j+2)
+						changeTurn();
+						
+					}else if(canJump(i,j,i+2,j-2)){
+						jumpPiece(i,j,i+2,j-2)
+						changeTurn();
+					}else if(canJump(i,j,i-2,j-2)){
+						jumpPiece(i,j,i+2,j-2)
+						changeTurn();
+					}else if(canJump(i,j,i-2,j+2)){
+						jumpPiece(i,j,i+2,j-2)
+						changeTurn();
+					}
+				}
+			}
+			
+		}
+		
+	}
+	for (i=0; i<10; i++){
+		
+		for(j=0; j<10; j++){
+			if (playerTurn == 1){	
+				if(gameBoard[i][j] == 1){
+					if (canMove(i,j,i+1,j+1)){
+						movePiece(i,j,i+1,j+1);
+						changeTurn();
+						
+					}else if(i,j,i+1,j-1){
+						movePiece(i,j,i+1,j-1);
+						changeTurn();					}
+					
+				}else if(gameBoard[i][j] == 3){
+					if (canMove(i,j,i+1,j+1)){
+						movePiece(i,j,i+1,j+1);
+						changeTurn();
+						
+					}else if(canMove(i,j,i+1,j-1)){
+						movePiece(i,j,i+1,j-1);
+						changeTurn();
+					}else if(canMove(i,j,i-1,j+1)){
+						movePiece(i,j,i-1,j+1);
+						changeTurn();
+					}else if(canMove(i,j,i-1,j-1)){
+						movePiece(i,j,i-1,j-1);
+						changeTurn();
+					}
+				}
+				
+			}
+		}
+	}
+	
+}
+
+******************************************************************************/
