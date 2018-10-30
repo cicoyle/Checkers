@@ -1,7 +1,7 @@
 # griffin-army-repo
 
 To begin "A Game of Checkers:
-Clone the github repository and open the index.html file in a web browser
+Clone the github repository and open the index.html file in a web browser.
 The application will not display a game board immediately. Click "New Game" to start the game.
 
 To play "A Game of Checkers":
