@@ -252,8 +252,6 @@ function stopWatch() {
 
 
 
-
-
 //Variables for playing games
 
 var newRow = 0;
@@ -297,6 +295,7 @@ function movePiece(y1,x1,y2,x2){
 	//alert ("iam at movePiece fuction"+y2+x2+y1+x1)
 
 	gameBoard[y2][x2] = 0;
+	makeKing(y1,x1);
 
 	draw(mode);
 
@@ -313,6 +312,7 @@ function jumpPiece(y1,x1,y2,x2){
 	
 
 	gameBoard[y1][x1] = gameBoard[y2][x2];
+	
 
 	//alert ("iam at movePiece fuction"+y2+x2+y1+x1)
 
@@ -346,7 +346,415 @@ function jumpPiece(y1,x1,y2,x2){
 
 	}
 
+	makeKing(y1,x1);
+
+	draw(mode);
+
+}
+
+// This function varifies if the move is legal
+
+function canMove(oldy,oldx,newy,newx){
+
+	var can = false;
+	//alert("this is " +gameBoard[oldy][oldx])
+
+	if ((gameBoard[oldy][oldx]== 1) ){
+
+		if (oldy == newy-1 &&(newx == oldx+1 || newx == oldx-1)){
+
+			if(gameBoard[newY][newX] ==0){
+
+				can = true;
+
+			}
+
+		}else{
+
+			can = false;
+
+		
+
+		}
+
+	}else if (gameBoard[oldy][oldx]== 2 ){
+
+		if (oldy == newy+1 &&(oldx == newx+1 || oldx == newx-1)){
+
+			if(gameBoard[newY][newX] ==0){
+
+					can = true;
+
+			}
+
+		}else{
+
+			can = false;
+
+		
+
+		}
+
+	}else if (gameBoard[oldy][oldx]== 3 || gameBoard[oldy][oldx]== 4){
+		if (oldy == newy+1 &&(oldx == newx+1 || oldx == newx-1)){
+
+			if(gameBoard[newY][newX] ==0){
+
+					can = true;
+
+			}
+
+		}else if (oldy == newy-1 &&(newx == oldx+1 || newx == oldx-1)){
+
+			if(gameBoard[newY][newX] ==0){
+
+				can = true;
+
+			}
+
+		}else{
+
+			can = false;
+
+		
+
+		}
+		
+	}
+
+	if (newx == 0 || newy == 0 || newx ==9 || newy == 9){
+
+		can = false;
+
+	}
+
+	return can;
+
 	
+
+	
+
+}
+
+// This Function varifies if the jump is legal.
+
+function canJump(oldy,oldx,newy,newx){
+
+	var can = false;
+	var pieceNum = gameBoard[oldy][oldx];
+
+	if (pieceNum == 1){
+	
+		if (oldy == newy-2 &&(newx == oldx+2 || newx == oldx-2)){
+
+			if ((gameBoard[oldy+1][oldx+1] == 2 || gameBoard[oldy+1][oldx+1] == 4) && oldx ==newx-2 ){
+				if(gameBoard[newY][newX] ==0){
+
+					can = true;
+
+				}
+			}
+		
+			if ((gameBoard[oldy+1][oldx-1] == 2 || gameBoard[oldy+1][oldx-1] == 4) && oldx ==newx+2 ){
+				if(gameBoard[newY][newX] ==0){
+
+					can = true;
+
+				}
+			}
+
+		}else{
+
+			can = false;
+
+		
+
+		}
+
+	}else if(pieceNum == 2){
+	
+		if (oldy == newy+2 &&(oldx == newx+2 || oldx == newx-2)){
+			
+			if ((gameBoard[oldy-1][oldx+1] ==  1 || gameBoard[oldy-1][oldx+1] == 3) && oldx ==newx-2 ){
+				if(gameBoard[newY][newX] ==0){
+
+					can = true;
+
+				}
+			}
+			if ((gameBoard[oldy-1][oldx-1] ==  1 || gameBoard[oldy-1][oldx-1] == 3) && oldx ==newx+2 ){
+				if(gameBoard[newY][newX] ==0){
+
+					can = true;
+
+				}
+			}
+
+		}else{
+
+			can = false;
+
+		}
+
+	}else if(pieceNum == 3){
+	
+		if (oldy == newy+2 &&(oldx == newx+2 || oldx == newx-2)){
+			
+			if ((gameBoard[oldy-1][oldx+1] ==  2 || gameBoard[oldy-1][oldx+1] == 4) && oldx ==newx-2 ){
+				if(gameBoard[newY][newX] ==0){
+
+					can = true;
+
+				}
+			}
+			if ((gameBoard[oldy-1][oldx-1] ==  2 || gameBoard[oldy-1][oldx-1] == 4) && oldx ==newx+2 ){
+				if(gameBoard[newY][newX] ==0){
+
+					can = true;
+
+				}
+			}
+
+		}else if(oldy == newy-2 &&(newx == oldx+2 || newx == oldx-2)){
+
+			if ((gameBoard[oldy+1][oldx+1] == 2 || gameBoard[oldy+1][oldx+1] == 4) && oldx ==newx-2 ){
+				if(gameBoard[newY][newX] ==0){
+
+					can = true;
+
+				}
+			}
+			
+			if ((gameBoard[oldy+1][oldx-1] == 2 || gameBoard[oldy+1][oldx-1] == 4) && oldx ==newx+2 ){
+				if(gameBoard[newY][newX] ==0){
+
+					can = true;
+
+				}
+			}
+
+
+			
+
+		}
+
+	}else if(pieceNum == 4){
+	
+		if (oldy == newy+2 &&(oldx == newx+2 || oldx == newx-2)){
+			
+			if ((gameBoard[oldy-1][oldx+1] ==  1 || gameBoard[oldy-1][oldx+1] == 3) && oldx ==newx-2 ){
+				if(gameBoard[newY][newX] ==0){
+
+					can = true;
+
+				}
+			}
+			if ((gameBoard[oldy-1][oldx+1] ==  1 || gameBoard[oldy-1][oldx-1] == 3) && oldx ==newx+2 ){
+				if(gameBoard[newY][newX] ==0){
+
+					can = true;
+
+				}
+			}
+
+		}else if(oldy == newy-2 &&(newx == oldx+2 || newx == oldx-2)){
+
+			if ((gameBoard[oldy+1][oldx+1] == 1 || gameBoard[oldy+1][oldx+1] == 3) && oldx ==newx-2 ){
+				if(gameBoard[newY][newX] ==0){
+
+					can = true;
+
+				}
+			}
+			
+			if ((gameBoard[oldy+1][oldx-1] == 1 || gameBoard[oldy+1][oldx-1] == 3) && oldx ==newx+2 ){
+				if(gameBoard[newY][newX] ==0){
+
+					can = true;
+
+				}
+			}
+
+
+			
+
+		}
+
+	}
+	
+	
+
+	
+	if (newx == 0 || newy == 0 || newx ==9 || newy == 9){
+
+		can = false;
+
+	}
+	
+
+	return can;
+
+	
+
+	
+
+}
+
+// This function varifies if the player wins
+
+function isWinner(){
+	var count = 0;
+	var winner =false;
+	for(k = 0; k<10; k++){
+		for(l=0; l< 10; l++){
+			if(playerTurn == 1){
+				if (gameBoard[k][l] ==2){
+					count++
+				}
+			}else{
+				if (gameBoard[k][l] ==1){
+					count++
+				}
+			}
+			
+		}
+		
+	}
+	if (count == 0){
+		winner = true;
+	}
+	return winner;
+}
+
+
+//this is the function to see multiple jump
+
+function canJumpAgain(y2,x2){
+	
+	var can = false;
+	
+	if (canJump(y2,x2,y2+2,x2+2)){
+		
+		can = true;
+	} else if(canJump(y2,x2,y2+2,x2-2)){
+		can = true;
+	}
+	
+	return can;
+}
+
+// this function check if the piece become king.
+function makeKing(y2,x2){
+	if(gameBoard[y2][x2]==1){
+		if(y2 == 8){
+			gameBoard[y2][x2]=3;
+			
+		}
+	}
+	if(gameBoard[y2][x2]==2){
+		if(y2 == 1){
+			gameBoard[y2][x2]=4;
+			
+		}
+	}
+	
+	
+	
+}
+
+// This function actually play the game
+
+function selectPiece(event) {
+
+    var x = event.offsetX;
+
+    var y = event.offsetY;
+
+    
+
+	var wid = x*90;
+
+	var hei = y*90;
+
+	newX = Math.floor(x/90);
+
+	newY = Math.floor(y/90);
+
+	ctx.clearRect (wid,hei,90,90);
+
+	
+
+	if (selectected == 1){
+
+		selectected = 0;
+
+		if (canMove(newRow,newCol,newY,newX)){
+
+			changeTurn();
+
+			movePiece(newY,newX,newRow,newCol);
+			ifKing(newY,newX);
+
+		}else if (canJump(newRow,newCol,newY,newX)){
+
+			
+
+			jumpPiece(newY,newX,newRow,newCol);
+			
+			if (canJumpAgain(newY,newX)){
+				changeTurn();
+			}
+			changeTurn();
+			if(isWinner()){
+				alert("player "+playerTurn +" wins");
+				initialize();
+			}
+			
+			
+
+		}
+		
+
+	}else{
+
+		
+
+		if((gameBoard[newY][newX] ==1 ||gameBoard[newY][newX] ==3)  && playerTurn == 1){
+
+			alert("Piece at row " + newY + " and column : " + newX+ "selected");
+
+			selectected = 1;
+
+	
+
+			newRow = newY;
+
+			newCol = newX;
+
+		}else if((gameBoard[newY][newX] ==2 ||gameBoard[newY][newX] ==4)  && playerTurn == 2){
+
+			alert("Piece at row " + newY + " and column : " + newX+ "selected");
+
+			selectected = 1;
+
+	
+
+			newRow = newY;
+
+			newCol = newX;
+
+		}else{
+
+			selectected = 0;
+
+		}
+
+	}
+
+	
+
+}
+
 
 	draw(mode);
 
