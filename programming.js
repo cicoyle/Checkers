@@ -773,6 +773,14 @@ function selectPiece(event) {
 }
 
 
+
+//Attempt at unit test
+
+//const {assert} = require ('chai');
+//function unitTest{
+//assert.lengthOf('gameBoard', 10);
+//}
+
 // This function will move the computer
 // attempt to AI
 
